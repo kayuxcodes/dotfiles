@@ -10,10 +10,25 @@
       "const ${TM_FILENAME_BASE} :NextPage<Props> = (props) => {",
       "\treturn (",
       "\t\t<div${1}>${2}</div>",
-      "\t\t)",
+      "\t)",
       "\t}",
       "",
-      "export default ${TM_FILENAME_BASE}"
+      "export default ${TM_FILENAME_BASE}",
+      "",
+      "${3}"
+    ]
+  },
+  "use Next.js getStaticProps": {
+    "prefix": "nsp",
+    "body": [
+      "export const getStaticProps: GetStaticProps<{",
+      "${1}",
+      "}> = async (context) => {",
+      "\t\t${2}",
+      "\treturn {",
+      "\t\tprops: {$3}",
+      "\t};",
+      "}"
     ]
   }
 }
