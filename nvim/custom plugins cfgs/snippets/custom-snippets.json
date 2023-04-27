@@ -1,0 +1,19 @@
+{
+  "use Next.js Page": {
+    "prefix": "nxp",
+    "body": [
+      "import React from 'react'",
+      "import { NextPage } from 'next'",
+      "",
+      "type Props = {}",
+      "",
+      "const ${TM_FILENAME_BASE} :NextPage<Props> = (props) => {",
+      "\treturn (",
+      "\t\t<div${1}>${2}</div>",
+      "\t\t)",
+      "\t}",
+      "",
+      "export default ${TM_FILENAME_BASE}"
+    ]
+  }
+}

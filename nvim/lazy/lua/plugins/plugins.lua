@@ -5,13 +5,14 @@ return {
   {"numToStr/Comment.nvim", lazy = true},  -- handle commment
   {"nvim-lua/plenary.nvim", lazy = true}, -- a lua common utilities
   -- themes  
-  "cocopon/iceberg.vim", -- iceberg dark blue theme
+  { "catppuccin/nvim", lazy = true, name = "catppuccin" },
+  { "cocopon/iceberg.vim", lazy = true }, -- iceberg dark blue theme
   --  "lunarvim/horizon.nvim"  -- horizon theme
   --  "morhetz/gruvbox"
   --  "folke/tokyonight.nvim" -- tokyonight theme
   {"olivercederborg/poimandres.nvim", lazy = true},
   {"sixels/caerula.nvim", lazy = true},
-  {"Everblush/nvim", lazy = true},
+  -- {"Everblush/nvim", lazy = true},
   {"shaunsingh/nord.nvim", lazy = true},
   ---
   --
@@ -41,12 +42,12 @@ return {
   {'MunifTanjim/prettier.nvim', lazy = true}, -- formatter
   -- completion plugins
   {'onsails/lspkind-nvim', lazy = true}, -- vscode-like pictograms
-  {'hrsh7th/cmp-buffer', lazy = true}, -- nvim-cmp source for buffer words
+  {'hrsh7th/cmp-buffer', lazy = false}, -- nvim-cmp source for buffer words
   {'hrsh7th/cmp-nvim-lsp', lazy = true}, -- nvim-cmp source for neovim's built-in LSP
   {'hrsh7th/cmp-path', lazy = true}, -- source for auto-complete paths
   {'hrsh7th/nvim-cmp', lazy = true }, -- Completion
 
-  {'L3MON4D3/LuaSnip', lazy = true}, -- Snippet
+  {'L3MON4D3/LuaSnip', lazy = false}, -- Snippet
   {'saadparwaiz1/cmp_luasnip', lazy = false}, -- suuport luasnip for auto-complete
   {"rafamadriz/friendly-snippets", lazy = false}, -- suuport many snippets in many langs
 
