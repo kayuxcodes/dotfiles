@@ -3,9 +3,9 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 M.ui = {
-  theme = "nightfox",
-  theme_toggle = { "chadracula", "oceanic-light" },
-  transparency = true,
+  theme = "poimandres",
+  theme_toggle = { "oceanic-next", "oceanic-next" },
+  transparency = false,
   hl_override = highlights.override,
   hl_add = highlights.add,
   statusline = {
@@ -23,7 +23,7 @@ M.ui = {
     end,
   },
   cmp = {
-    style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
     -- lspkind_text = false,
   },
   telescope = {

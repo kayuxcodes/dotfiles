@@ -6,15 +6,14 @@ function M.config()
   end
   lspsaga.setup {
     ui = {
-      border = "rounded",
-      winblend = 10,
+      border = "single",
+      -- winblend = 10,
       code_action = "",
       actionfix = " ",
     },
     hover = {
       max_width = 0.6,
     },
-    finder = {},
   }
 end
 return M

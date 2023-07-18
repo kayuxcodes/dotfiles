@@ -20,7 +20,8 @@ opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
-
+-- setting max list of suggestion (uses for `nvim-cmp`)
+opt.pumheight = 10
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive

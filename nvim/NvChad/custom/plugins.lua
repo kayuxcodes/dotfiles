@@ -1,10 +1,8 @@
 local overrides = require "custom.configs.overrides"
-
 ---@type NvPluginSpec[]
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -44,6 +42,32 @@ local plugins = {
 
   -- Install a plugin
   {
+    "nvim-treesitter/playground",
+    cmd = "TSCaptureUnderCursor",
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        playground = {
+          enable = true,
+          disable = {},
+          updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+          persist_queries = false, -- Whether the query persists across vim sessions
+          keybindings = {
+            toggle_query_editor = "o",
+            toggle_hl_groups = "i",
+            toggle_injected_languages = "t",
+            toggle_anonymous_nodes = "a",
+            toggle_language_display = "I",
+            focus_language = "f",
+            unfocus_language = "F",
+            update = "R",
+            goto_node = "<cr>",
+            show_help = "?",
+          },
+        },
+      }
+    end,
+  },
+  {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
@@ -52,6 +76,7 @@ local plugins = {
   },
   {
     "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
     ft = { "typescriptreact", "tsx" },
     config = function()
       require("nvim-ts-autotag").setup()
@@ -81,7 +106,22 @@ local plugins = {
   {
     "williamboman/mason-lspconfig.nvim",
   },
-
+  {
+    "NvChad/nvterm",
+    config = function()
+      require("nvterm").setup {
+        terminals = {
+          shell = "powershell",
+        },
+      }
+    end,
+  },
+  {
+    "olivercederborg/poimandres.nvim",
+    config = function()
+      require("poimandres").setup {}
+    end,
+  },
   -- disabled plugins
   {
     "lukas-reineke/indent-blankline.nvim",
