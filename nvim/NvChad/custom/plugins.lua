@@ -1,7 +1,6 @@
 local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
@@ -25,7 +24,6 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
@@ -39,7 +37,10 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     opts = require("custom.configs.telescope").opts,
   },
-
+  {
+    "hrsh7th/nvim-cmp",
+    opts = require("custom.configs.cmp").config(),
+  },
   -- Install a plugin
   {
     "nvim-treesitter/playground",
@@ -116,12 +117,6 @@ local plugins = {
       }
     end,
   },
-  {
-    "olivercederborg/poimandres.nvim",
-    config = function()
-      require("poimandres").setup {}
-    end,
-  },
   -- disabled plugins
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -129,7 +124,7 @@ local plugins = {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    enabled = false,
+    enabled = true,
   },
   {
     "NvChad/nvim-colorizer.lua",

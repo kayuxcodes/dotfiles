@@ -3,9 +3,9 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 M.ui = {
-  theme = "poimandres",
+  theme = "blossom_light",
   theme_toggle = { "oceanic-next", "oceanic-next" },
-  transparency = false,
+  transparency = true,
   hl_override = highlights.override,
   hl_add = highlights.add,
   statusline = {
@@ -43,6 +43,9 @@ M.ui = {
   },
 }
 M.plugins = "custom.plugins"
+
+-- require("luasnip.loaders.from_vscode").lazy_load { paths = "./snippets/package.json" }
+
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
 return M

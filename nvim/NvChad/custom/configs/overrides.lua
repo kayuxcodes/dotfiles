@@ -33,7 +33,6 @@ M.mason = {
     "prettier",
   },
 }
-
 -- git support in nvimtree
 -- M.nvimtree = {
 --   git = {

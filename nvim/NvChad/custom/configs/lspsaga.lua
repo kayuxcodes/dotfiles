@@ -13,6 +13,7 @@ function M.config()
     },
     hover = {
       max_width = 0.6,
+      max_height = 0.6
     },
   }
 end

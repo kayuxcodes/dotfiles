@@ -57,13 +57,12 @@ M.base_16 = {
 }
 M.polish_hl = {
   ["@variable"] = { fg = "#E4F0FB" },
-  ["@boolean"] = { link = "Boolean" },
   Comment = { fg = "#767C9D" },
   ["@variable.builtin"] = { fg = "#E4F0FB" },
   ["@constant.builtin"] = { fg = "#ADD7FF" },
   ["@constant.falsy"] = { fg = "#D0679D" },
   ["@constructor"] = { fg = "#767C9D" },
-  ["@constructor.tsx"] = { fg = "#5DE4C7", link ="Tag" },
+  ["@constructor.tsx"] = { link = "Tag" },
   ["@function.builtin"] = { fg = "#ADD7FF" },
   ["@function"] = { fg = "#ADD7FF" },
   ["@function.call"] = { fg = "#A6ACCD" },
@@ -81,16 +80,13 @@ M.polish_hl = {
   ["@punctuation.delimiter"] = { fg = "#ADD7FF" },
   ["@punctuation.special"] = { fg = "#91B4D5" },
   ["@punctuation.bracket"] = { fg = "#767C9D" },
-  ["@string"] = { link = "String" },
   ["@string.escape"] = { fg = "#D0679D" },
   Tag = { fg = "#5DE4C7" },
-  ["@tag.attribute"] = { fg = "#A6ACCD", link = "" },
+  ["@tag.attribute"] = { fg = "#A6ACCD", italic = true, link = "" },
   ["@tag.delimiter"] = { fg = "#E4F0FB" },
-  ["@txt"] = { fg = "#E4F0FB" },
-  ["@title"] = { fg = "#5DE4C7", style = "bold" },
+  ["@text"] = { fg = "#E4F0FB" },
+  ["@title"] = { fg = "#5DE4C7", bold = true },
   Type = { fg = "#767C9D" },
-  ["@type"] = { link = "Type" },
-  ["@type.builtin"] = { link = "Type" },
   ["@none"] = { fg = "#E4F0FB" },
   CmpItemAbbr = { fg = "#767C9D" },
   CmpItemAbbrDeprecated = { fg = "#D0679D" },
@@ -110,6 +106,8 @@ M.polish_hl = {
   St_TerminalmodeText = { fg = "#FFFAC2" },
   St_TerminalModeSep = { fg = "#FFFAC2" },
   St_TerminalMode = { bg = "#FFFAC2" },
+  NvimTreeNormalNC = { bg = "#171922" },
+  NvimTreeNormal = { bg = "#171922" },
 }
 M.type = "dark"
 
