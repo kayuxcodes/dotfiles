@@ -1,7 +1,7 @@
 # kayux dotfiles
 
-![dev](./images/windev) ![env](./images/winenv) ![i](./images/coding.PNG)
-![fdsa](./images/winenvr.PNG)
+![0](./images/windev.png) ![7](./images/winenv.png) ![1](./images/coding.png)
+![5](./images/winenvr.png)
 
 ## nvim
 
