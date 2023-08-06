@@ -1,12 +1,17 @@
 param (
     [switch]$lazy
 )
-# define-config-for-the-settings--------------------------------------------------------------------------------------
+# options-for-configuration--------------------------------------------------------------------------------------------
 $windowsTerminalSettingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*\LocalState\settings.json"
+# dark
 $darkColorschemeName = "Poimandres"
-$lightColorschemeName = "Catppuccin Latte"
 $darkBackgroundImagePath = "$Home\Pictures\dark.jpg"
+$darkOhMyPosh = "$Home/Documents/Powershell/poimandres.omp.json" 
+
+# light
 $lightBackgroundImagePath = "$Home\Pictures\light.jpg"
+$lightColorschemeName = "Catppuccin Latte"
+$lightOhMyPosh = '$Home/Documents/Powereshell/kayux.omp.json' 
 # jsonContent for Windows Terminal json settings
 $wtSettings = Get-Content -Path $windowsTerminalSettingsPath -Raw | ConvertFrom-Json
 # this function will call after the settings will applied
@@ -36,39 +41,16 @@ function Get-WindowsDarkThemeStatus {
 function Set-WallPaper {
   param (
       [parameter(Mandatory=$True)]
-      # Provide path to image
-      [string]$Image,
-      # Provide wallpaper style that you would like applied
-      [parameter(Mandatory=$False)]
-      [ValidateSet('Fill', 'Fit', 'Stretch', 'Tile', 'Center', 'Span')]
-      [string]$Style
+      [string]$Image
       )
-    $WallpaperStyle = Switch ($Style) {
-      "Fill" {"10"}
-      "Fit" {"6"}
-      "Stretch" {"2"}
-      "Tile" {"0"}
-      "Center" {"0"}
-      "Span" {"22"}
-    }
-  if($Style -eq "Tile") {
-    New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name WallpaperStyle -PropertyType String -Value $WallpaperStyle -Force
-      New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name TileWallpaper -PropertyType String -Value 1 -Force
-  }
-  else {
-    New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name WallpaperStyle -PropertyType String -Value $WallpaperStyle -Force
-      New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name TileWallpaper -PropertyType String -Value 0 -Force
-  }
-#refresh the User32
-  Add-Type -TypeDefinition @" 
+    Add-Type -TypeDefinition @" 
     using System; 
-  using System.Runtime.InteropServices;
-
-  public class Params
-  { 
-    [DllImport("User32.dll",CharSet=CharSet.Unicode)] 
-      public static extern int SystemParametersInfo (Int32 uAction, Int32 uParam, String lpvParam, Int32 fuWinIni);
-  }
+    using System.Runtime.InteropServices;
+    public class Params
+    { 
+       [DllImport("User32.dll",CharSet=CharSet.Unicode)] 
+       public static extern int SystemParametersInfo (Int32 uAction, Int32 uParam, String lpvParam, Int32 fuWinIni);
+    }
 "@ 
     $SPI_SETDESKWALLPAPER = 0x0014
     $UpdateIniFile = 0x01
@@ -78,41 +60,31 @@ function Set-WallPaper {
 }
 function Set-WindowsTerminalColorScheme {
   if (Test-Path $windowsTerminalSettingsPath) {
-# Determine if the dark theme is enabled in Windows
     $isDarkThemeEnabled = Get-WindowsDarkThemeStatus
-
-# Set the colorscheme based on whether dark theme is enabled or not
-      $selectedColorscheme = if ($isDarkThemeEnabled) {$darkColorschemeName} else { $lightColorschemeName }
-
-# Ensure the 'profiles' and 'defaults' properties exist in the JSON object
+    $selectedColorscheme = if ($isDarkThemeEnabled) {$darkColorschemeName} else { $lightColorschemeName }
+    # Ensure the 'profiles' and 'defaults' properties exist in the JSON object
     if (-not $wtSettings.profiles) {
       $wtSettings.profiles = @{}
     }
     if (-not $wtSettings.profiles.defaults) {
       $wtSettings.profiles.defaults = @{}
     }
-
-# Update the colorscheme setting in the JSON object
     $wtSettings.profiles.defaults.colorScheme = $selectedColorscheme
+    $updatedJsonContent = $wtSettings | ConvertTo-Json -Depth 4
+    $updatedJsonContent | Set-Content -Path $windowsTerminalSettingsPath -Encoding UTF8
 
-# Convert the updated object back to JSON
-      $updatedJsonContent = $wtSettings | ConvertTo-Json -Depth 4
-
-# Write the updated JSON back to the settings.json file
-      $updatedJsonContent | Set-Content -Path $windowsTerminalSettingsPath -Encoding UTF8
-
-# Change the Windows background based on the theme
+    # Change the Windows background based on the theme
       $currentBgPath = (Get-ItemProperty -Path 'HKCU:\Control Panel\Desktop\' -Name 'Wallpaper').Wallpaper
       $currentBgName = "'$(Split-Path -Path $currentBgPath -Leaf)'"
       if ($isDarkThemeEnabled) {
         if ($currentBgPath -ne $darkBackgroundImagePath) {
-          Set-WallPaper -Image $darkBackgroundImagePath -Style Center > $null
+          Set-WallPaper -Image $darkBackgroundImagePath
         } else {
           Write-Host("$currentBgName Background is already set")
         }
       } else {
         if ($currentBgPath -ne $lightBackgroundImagePath) {
-          Set-WallPaper -Image $lightBackgroundImagePath -Style Center > $null
+          Set-WallPaper -Image $lightBackgroundImagePath
         } else {
           Write-Host("$currentBgName Background is already set")
         }
@@ -121,17 +93,16 @@ function Set-WindowsTerminalColorScheme {
     Write-Host "Windows Terminal settings.json not found. Make sure Windows Terminal is installed and run it at least once."
   }
 }
+# settings up oh-my-posh config based on the theme
 if (Get-WindowsDarkThemeStatus) {
-  oh-my-posh init pwsh --config ("$Home/Documents/PowerShell/" + "poimandres.omp.json") | Invoke-Expression
+  oh-my-posh init pwsh --config $darkOhMyPosh | Invoke-Expression
 } else {
-  oh-my-posh init pwsh --config ("$Home/Documents/PowerShell/" + "kayux.omp.json") | Invoke-Expression
+  oh-my-posh init pwsh --config $lightOhMyPosh | Invoke-Expression
 }
-
 # PSRadLine Options
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle InlineView
 Set-PSReadLineOption -Colors @{ "InlinePrediction" = "blue" }
-# Set-PSReadLineOption -EditMode Vi
 ## KeyBindgs
 Set-PSReadLineKeyHandler -Key "ctrl+p" -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key "ctrl+n" -Function HistorySearchForward
@@ -146,7 +117,6 @@ Set-Alias vim nvim
 Set-Alias pt "~\scoop\apps\powertoys\0.71.0\PowerToys.exe"
 Set-Alias opera "~\scoop\apps\opera\99.0.4788.9\launcher.exe"
 Set-Alias zt "$env:localappdata\Programs\Zettlr\Zettlr.exe"
-
 # Utility Functions
 # delete files and folders
 function dlt {
@@ -170,23 +140,23 @@ function dlt {
     Write-Host "nothing removed"
   } else {
     Write-Host "$($Success.length) removed successfuly, but $($Faileds.length) failed to removed"
-      Write-Host "Failed Files: ('$Faileds')" -ForegroundColor 'red' 
+    Write-Host "Failed Files: ('$Faileds')" -ForegroundColor 'red' 
   }
 }
 # copy to clipboard
 function cpy ($target, $o) {
-  if ((Test-Path $target) -eq $false -and $o) {
+  if (-not (Test-Path $target) -and $o) {
     $target | clip
-      Write-Host "content copied"
+    Write-Host "content copied"
   } elseif (Test-Path $target) {
     Get-Content $target | clip
-      Write-Host "file content copied"
+    Write-Host "file content copied"
   }
   else {
     Write-Host "$target file does not exist" -ForegroundColor "red"
   }
 }
-# generate a typescript interface for an api or existing file using quicktype library
+# generate a typescript interface for an api or existing file using npm quicktype library
 function getinterface ($target, $output, $getcontent) {
   if (Get-Command "quicktype" -ErrorAction SilentlyContinue) {
     if ($target) {
@@ -195,35 +165,36 @@ function getinterface ($target, $output, $getcontent) {
           Write-Host ("Interface saved in '{0}\{1}' file" -f $(Get-Location), $output)
       } else {
         quicktype $target --just-types --lang ts | clip
-          Write-Host "interface copied"
+        Write-Host "interface copied"
       }
     } else {
-      Write-Host "target must not be empty"
+      Write-Host "A target must be entered"
     }
   } else {
     Write-Host "you have to install the 'quicktype' library to run this command"
   }	
 }
 function which ($command) {
-  Get-Command -Name $command -ErrorAction SilentlyContinue |
-    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+  Get-Command -Name $command -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
+# clone epos directly by repo name
 function cme($path) {
+  $githubUsername = "kayuxcodes" # put your own
   if (Get-Command "git" -ErrorAction SilentlyContinue) {
-    git clone git@github.com:kayuxcodes/${path}.git 
+    git clone git@github.com:${githubUsername}/${path}.git 
   } else {
     Write-Host 'you need to install git to run this command'
   }
 }
-
 if (-not $lazy) {
   Set-WindowsTerminalColorScheme
-    if (Get-Command "neofetch" -ErrorAction SilentlyContinue) {
-      neofetch
-    } else {
-      Write-Host 'neofetch is not installed in your path'
-    }
+  Set-Envs
+  if (Get-Command "neofetch" -ErrorAction SilentlyContinue) {
+    neofetch
+  } else {
+    Write-Host 'neofetch is not installed in your path'
+  }
 } else {
-  Write-Host("loading script with lazy mod") -ForegroundColor DarkMagenta
+    Write-Host("loading script with lazy mod") -ForegroundColor DarkMagenta
+    Set-Envs
 }
-Set-Envs
