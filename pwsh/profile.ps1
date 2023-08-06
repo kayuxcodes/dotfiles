@@ -7,7 +7,6 @@ $windowsTerminalSettingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerm
 $darkColorschemeName = "Poimandres"
 $darkBackgroundImagePath = "$Home\Pictures\dark.jpg"
 $darkOhMyPosh = "$Home/Documents/Powershell/poimandres.omp.json" 
-
 # light
 $lightBackgroundImagePath = "$Home\Pictures\light.jpg"
 $lightColorschemeName = "Catppuccin Latte"
@@ -24,7 +23,6 @@ function Set-Envs {
   $nfProfile = $env:NEOFETCH_PROFILE 
 }
 # ---------------------------------------------------------------------------------------------------------------------
-
 function Get-WindowsDarkThemeStatus {
     $registryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"
     if (Test-Path $registryPath) {
