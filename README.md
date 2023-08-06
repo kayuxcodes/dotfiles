@@ -2,6 +2,9 @@
 
 # kayux dotfiles
 
+Before making any changes to your config, it's important to take a quick peek
+and make a backup just in case.
+
 ## tools
 
 - [Neovim](https://neovim.io/)
