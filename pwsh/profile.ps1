@@ -10,7 +10,7 @@ $darkOhMyPosh = "$Home/Documents/Powershell/poimandres.omp.json"
 # light
 $lightBackgroundImagePath = "$Home\Pictures\light.jpg"
 $lightColorschemeName = "Catppuccin Latte"
-$lightOhMyPosh = '$Home/Documents/Powereshell/kayux.omp.json' 
+$lightOhMyPosh = "$Home/Documents/Powereshell/kayux.omp.json" 
 # jsonContent for Windows Terminal json settings
 $wtSettings = Get-Content -Path $windowsTerminalSettingsPath -Raw | ConvertFrom-Json
 # this function will call after the settings will applied
@@ -23,11 +23,11 @@ function Set-Envs {
   $nfProfile = $env:NEOFETCH_PROFILE 
 }
 # ---------------------------------------------------------------------------------------------------------------------
+
 function Get-WindowsDarkThemeStatus {
     $registryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"
     if (Test-Path $registryPath) {
         $themeProperties = Get-ItemProperty -Path $registryPath
-
         # Check if the "AppsUseLightTheme" registry value is set to 0 (dark theme) or 1 (light theme)
         $isDarkThemeEnabled = $themeProperties.AppsUseLightTheme -eq 0
         return $isDarkThemeEnabled
@@ -50,11 +50,8 @@ function Set-WallPaper {
        public static extern int SystemParametersInfo (Int32 uAction, Int32 uParam, String lpvParam, Int32 fuWinIni);
     }
 "@ 
-    $SPI_SETDESKWALLPAPER = 0x0014
-    $UpdateIniFile = 0x01
-    $SendChangeEvent = 0x02
-    $fWinIni = $UpdateIniFile -bor $SendChangeEvent
-    $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
+    $fWinIni = 0x01 -bor 0x02
+    $ret = [Params]::SystemParametersInfo(0x0014, 0, $Image, $fWinIni)
 }
 function Set-WindowsTerminalColorScheme {
   if (Test-Path $windowsTerminalSettingsPath) {
@@ -70,7 +67,6 @@ function Set-WindowsTerminalColorScheme {
     $wtSettings.profiles.defaults.colorScheme = $selectedColorscheme
     $updatedJsonContent = $wtSettings | ConvertTo-Json -Depth 4
     $updatedJsonContent | Set-Content -Path $windowsTerminalSettingsPath -Encoding UTF8
-
     # Change the Windows background based on the theme
       $currentBgPath = (Get-ItemProperty -Path 'HKCU:\Control Panel\Desktop\' -Name 'Wallpaper').Wallpaper
       $currentBgName = "'$(Split-Path -Path $currentBgPath -Leaf)'"
@@ -113,8 +109,6 @@ Import-Module -name Terminal-Icons
 # Aliases
 Set-Alias vim nvim
 Set-Alias pt "~\scoop\apps\powertoys\0.71.0\PowerToys.exe"
-Set-Alias opera "~\scoop\apps\opera\99.0.4788.9\launcher.exe"
-Set-Alias zt "$env:localappdata\Programs\Zettlr\Zettlr.exe"
 # Utility Functions
 # delete files and folders
 function dlt {
