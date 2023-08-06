@@ -4,9 +4,9 @@
 
 ## tools
 
-- Neovim
-- Powershell
-- PowerToys
+- [Neovim](https://neovim.io/)
+- [Powershell](https://github.com/powershell/powershell)
+- [PowerToys](https://github.com/microsoft/PowerToys)
 
 ## nvim
 
@@ -21,7 +21,7 @@
 
 ## powershell
 
-- [scoop](https://github.com/scoopinstaller/scoop) Package manager
-- [git](https://github.com/git/git)
+- [scoop](https://scoop.sh) Package manager
+- [git](https://git-scm.com/git)
 - [z](https://github.com/badmotorfinger/z) Directory jumper
 - [neofetch](https://github.com/dylanaraps/neofetch) system information utility
