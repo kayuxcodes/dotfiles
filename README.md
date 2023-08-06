@@ -1,6 +1,6 @@
-# kayux dotfiles
-
 ![0](./images/windev.PNG) ![7](./images/coding.PNG) ![1](./images/winenvr.PNG)
+
+# kayux dotfiles
 
 ## tools
 
