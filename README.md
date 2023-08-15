@@ -29,6 +29,7 @@ and make a backup just in case.
 - [git](https://git-scm.com/git)
 - [z](https://github.com/badmotorfinger/z) Directory jumper
 - [Teminal-Icons](https://github.com/devblackops/Terminal-Icons) file and folder
+- [Github CLI](https://cli.github.com) github command line
   icons
 - [PSReadLine](https://github.com/PowerShell/PSReadLine) readline implementation
 - [neofetch](https://github.com/dylanaraps/neofetch) system information utility
