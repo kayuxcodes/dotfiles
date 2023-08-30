@@ -35,39 +35,14 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope.nvim",
-    opts = require("custom.configs.telescope").opts,
+    opts = overrides.telescope,
   },
   {
     "hrsh7th/nvim-cmp",
-    opts = require("custom.configs.cmp").config(),
+    -- opts = require("custom.configs.cmp").config(),
+    opts = overrides.cmp(),
   },
   -- Install a plugin
-  {
-    "nvim-treesitter/playground",
-    cmd = "TSCaptureUnderCursor",
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        playground = {
-          enable = true,
-          disable = {},
-          updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-          persist_queries = false, -- Whether the query persists across vim sessions
-          keybindings = {
-            toggle_query_editor = "o",
-            toggle_hl_groups = "i",
-            toggle_injected_languages = "t",
-            toggle_anonymous_nodes = "a",
-            toggle_language_display = "I",
-            focus_language = "f",
-            unfocus_language = "F",
-            update = "R",
-            goto_node = "<cr>",
-            show_help = "?",
-          },
-        },
-      }
-    end,
-  },
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -77,21 +52,18 @@ local plugins = {
   },
   {
     "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    ft = { "typescriptreact", "tsx" },
-    config = function()
-      require("nvim-ts-autotag").setup()
+    ft = overrides.autotag.filetypes,
+    opts = function()
+      return overrides.autotag.opts
+    end,
+    config = function(_, opts)
+      require("nvim-ts-autotag").setup(opts)
     end,
   },
   {
     "nvimdev/lspsaga.nvim",
     lazy = false,
-    config = function()
-      local status, lspsaga = pcall(require, "custom.configs.lspsaga")
-      if status then
-        lspsaga.config()
-      end
-    end,
+    opts = overrides.lspsaga,
   },
   {
     "stevearc/oil.nvim",
@@ -109,13 +81,7 @@ local plugins = {
   },
   {
     "NvChad/nvterm",
-    config = function()
-      require("nvterm").setup {
-        terminals = {
-          shell = "powershell",
-        },
-      }
-    end,
+    opts = overrides.nvterm,
   },
   -- disabled plugins
   {
@@ -124,7 +90,7 @@ local plugins = {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    enabled = true,
+    enabled = false,
   },
   {
     "NvChad/nvim-colorizer.lua",

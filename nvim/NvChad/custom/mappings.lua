@@ -1,13 +1,20 @@
 ---@type MappingsTable
 local M = {}
 local opts = { nowait = true, silent = true, noremap = true }
+vim.cmd("noremap <c-k> <Nop>")
 M.general = {
   n = {
     ["<leader>fn"] = { 'o<Esc>0"_D', "insert new line wihtout exit normal mode", opts },
     ["<leader>cc"] = { "<cmd>noh<cr>", "delete highlighting", opts },
-    ["<leader>+"] = { "<C-a>", "increase number", opts },
-    ["<leader>-"] = { "<C-x>", "decerease number", opts },
+    ["+"] = { "<C-a>", "increase number", opts },
+    ["_"] = { "<C-x>", "decerease number", opts },
     ["<leader>to"] = { "<cmd> enew <CR>", "New buffer" },
+    ["<leader>tc"] = {
+      function()
+        require("base46").toggle_theme()
+      end,
+      "Toggle Theme",
+    },
     ["<leader>tx"] = {
       function()
         require("nvchad_ui.tabufline").close_buffer()
@@ -19,6 +26,15 @@ M.general = {
         require("base46").toggle_transparency()
       end,
       "Toggle transparency",
+    },
+    ["<leader>r"] = {
+      function()
+        local cmd = "python3 " .. vim.fn.expand "%"
+        local term = require "nvterm.terminal"
+        -- term.toggle "horizontal"
+        term.send(cmd, "horizontal", true)
+      end,
+      "execute current python file",
     },
   },
 }
@@ -54,7 +70,7 @@ M.lspsaga = {
     },
   },
   i = {
-    ["<c-k>"] = { "<cmd>lua vim.lsp.bug.signature_help()<cr>", "Display help signature", opts },
+    ["<c-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Display help signature", opts },
   },
 }
 

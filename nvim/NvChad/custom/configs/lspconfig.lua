@@ -5,10 +5,10 @@ local lspconfig = require "lspconfig"
 local mason_lsp = require "mason-lspconfig"
 
 mason_lsp.setup {
-  ensure_installed = { "tailwindcss" },
+  ensure_installed = { "tailwindcss", "astro", "powershell_es" },
 }
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "tailwindcss" }
+local servers = { "html", "cssls", "tsserver", "tailwindcss", "astro", "powershell_es", "pyright" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -17,12 +17,18 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4 },
-  severity_sort = true,
-})
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--   underline = true,
+--   update_in_insert = false,
+--   virtual_text = { spacing = 4 },
+--   severity_sort = true,
+-- })
 
---
+vim.diagnostic.config {
+  virtual_text = { spacing = 4 },
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+}
+
 -- lspconfig.pyright.setup { blabla}

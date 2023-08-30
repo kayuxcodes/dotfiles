@@ -5,9 +5,7 @@
 local M = {}
 ---@type Base46HLGroupsList
 M.override = {
-  Comment = {
-    italic = false,
-  },
+  Comment = { italic = false },
   TblineFill = {
     link = "none",
   },
@@ -15,6 +13,9 @@ M.override = {
   CmpDoc = {
     link = "",
   },
+  DiagnosticError = { link = "", bg = { "red", -45 } },
+  DiagnosticHint = { link = "", bg = { "lightbg", -50 } },
+  DiagnosticWarn = { link = "", bg = { "yellow", -75 } },
 }
 ---@type HLTable
 M.add = {
@@ -23,6 +24,9 @@ M.add = {
   CmpDocTransparent = { link = "none" },
   SagaBorder = { link = "CmpDocBorder" },
   ["@constructor.tsx"] = { link = "Tag" },
+  DiagnosticSignHint = { fg = "lightbg" },
+  DiagnosticSignWarn = { fg = "yellow" },
+  DiagnosticSignError = { fg = "red" },
 }
-
+M.changed_themes = {}
 return M

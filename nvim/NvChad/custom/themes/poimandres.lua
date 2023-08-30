@@ -1,6 +1,6 @@
 -- Credits to original theme https://github.com/olivercederborg/poimandres.nvim
 -- This is a modified version by @kayuxcodes
-
+---@type Base46Table
 local M = {}
 
 M.base_30 = {
@@ -80,6 +80,7 @@ M.polish_hl = {
   ["@punctuation.delimiter"] = { fg = "#ADD7FF" },
   ["@punctuation.special"] = { fg = "#91B4D5" },
   ["@punctuation.bracket"] = { fg = "#767C9D" },
+  ["@type.builtin"] = { link = "Boolean" },
   ["@string.escape"] = { fg = "#D0679D" },
   Tag = { fg = "#5DE4C7" },
   ["@tag.attribute"] = { fg = "#A6ACCD", italic = true, link = "" },
@@ -99,7 +100,7 @@ M.polish_hl = {
   CmpItemKindMethod = { fg = "#D0679D" },
   CmpItemKindSnippet = { fg = "#A6ACCD" },
   CmpItemKindVariable = { fg = "#5DE4C7" },
-  ["CmpSel"] = { fg = "#E4F0FB", link = "" },
+  ["CmpSel"] = { fg = "#E4F0FB", bg = "#303340", link = "" },
   St_CommandmodeText = { fg = "#5DE4C7" },
   St_CommandModeSep = { fg = "#5DE4C7" },
   St_CommandMode = { bg = "#5DE4C7" },
@@ -108,6 +109,7 @@ M.polish_hl = {
   St_TerminalMode = { bg = "#FFFAC2" },
   NvimTreeNormalNC = { bg = "#171922" },
   NvimTreeNormal = { bg = "#171922" },
+  ["Title.astro"] = { bg = "red" },
 }
 M.type = "dark"
 

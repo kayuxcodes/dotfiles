@@ -48,3 +48,6 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append "-" -- consider string-string as whole word
+
+-- this autocmd speceifc for astro highlight
+vim.cmd [[autocmd FileType astro hi link @text.title @text]]
