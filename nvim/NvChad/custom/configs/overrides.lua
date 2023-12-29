@@ -13,7 +13,7 @@ M.treesitter = {
     "css",
     "markdown",
     "markdown_inline",
-    "python"
+    "python",
   },
   indent = {
     enable = true,
@@ -34,7 +34,7 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettierd",
-    "python"
+    "python",
   },
 }
 
@@ -49,6 +49,7 @@ M.telescope = {
       previewer = false,
     },
   },
+  extensions_list = { "themes", "terms", "fzf" },
 }
 --lspsaga
 M.lspsaga = {

@@ -7,9 +7,15 @@ local plugins = {
     dependencies = {
       -- format & linting
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "stevearc/conform.nvim",
         config = function()
-          require "custom.configs.null-ls"
+          require "custom.configs.conform"
+        end,
+      },
+      {
+        "mfussenegger/nvim-lint",
+        config = function()
+          require "custom.configs.nvim-lint"
         end,
       },
     },
@@ -36,6 +42,19 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     opts = overrides.telescope,
+    dependencies = {
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function()
+          require("telescope").setup {
+            opts = {
+              extensions_list = { "fzf" },
+            },
+          }
+        end,
+      },
+    },
   },
   {
     "hrsh7th/nvim-cmp",

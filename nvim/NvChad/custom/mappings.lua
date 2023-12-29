@@ -1,7 +1,7 @@
 ---@type MappingsTable
 local M = {}
 local opts = { nowait = true, silent = true, noremap = true }
-vim.cmd("noremap <c-k> <Nop>")
+vim.cmd "noremap <c-k> <Nop>"
 M.general = {
   n = {
     ["<leader>fn"] = { 'o<Esc>0"_D', "insert new line wihtout exit normal mode", opts },
@@ -17,7 +17,7 @@ M.general = {
     },
     ["<leader>tx"] = {
       function()
-        require("nvchad_ui.tabufline").close_buffer()
+        require("nvchad.tabufline").close_buffer()
       end,
       "Close buffer",
     },
@@ -84,6 +84,30 @@ M.telescope = {
     ["fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+  },
+}
+M.comform = {
+  n = {
+    ["<leader>fm"] = {
+      function()
+        require("conform").format {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        }
+      end,
+      "Format file",
+    },
+  },
+}
+M.lint = {
+  n = {
+    ["<leader>l"] = {
+      function()
+        require("lint").try_lint()
+      end,
+      "lint file",
+    },
   },
 }
 -- kemaps disabled
