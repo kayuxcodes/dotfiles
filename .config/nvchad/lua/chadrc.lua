@@ -11,27 +11,32 @@ M.ui = {
 	transparency = false,
 	hl_override = highlights.override,
 	hl_add = highlights.add,
-	-- lsp = {
-	-- 	-- semantic_tokens = true,
-	-- },
+
+	lsp = {
+		semantic_tokens = true,
+	},
+
 	statusline = {
 		separator_style = "default",
 		theme = "default", -- default/vscode/vscode_colored/minimal
 	},
+
 	tabufline = {
 		enabled = true,
 		lazyload = true,
 		order = { "treeOffset", "buffers", "tabs", "btns" },
 		modules = nil,
 	},
-	-- extended_integrations = { "lspsaga", "notify" },
+
 	cmp = {
 		style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
 		-- lspkind_text = false,
 	},
+
 	telescope = {
 		style = "bordered",
 	},
+
 	nvdash = {
 		load_on_startup = true,
 		header = {
@@ -54,11 +59,11 @@ M.ui = {
 	},
 }
 
--- M.base46 = {
--- 	integrations = {
--- 		"lspsaga",
--- 		"notify",
--- 	},
--- }
+M.base46 = {
+	integrations = {
+		"lspsaga",
+		"notify",
+	},
+}
 
 return M
