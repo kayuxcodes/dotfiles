@@ -1,38 +1,47 @@
-![0](./images/windev.PNG) ![7](./images/coding.PNG) ![1](./images/winenvr.PNG)
+# kayux's dotfiles
 
-# kayux dotfiles
-
-Before making any changes to your config, it's important to take a quick peek
+Before making any changes to your config, take a quick peek
 and make a backup just in case.
 
-## tools
+## Table of Contents
 
-- [Neovim](https://neovim.io/)
-- [Powershell](https://github.com/powershell/powershell)
-- [PowerToys](https://github.com/microsoft/PowerToys)
+- [Tools](#tools)
+- [Shell](#shell)
+- [Neovim](#neovim)
+- [Linux](#linux)
 
-## neovim
+## Tools
 
-- [NvChad](https://github.com/nvchad/nvchad) a Neovim workflow
-- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) autotag
-  for html,xml,etc..
-- [nvimdev/lspsaga.nvim](https://github.com/nvimdev/lspsaga.nvim) improve LSP UI
-- [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim) file explorer
-- [tpope/vim-surround](https://github.com/tpope/vim-surround) for
-  Delete/change/add parenthese
-- [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-  configs for Nvim Lsp
-
-## powershell
-
-- [scoop](https://scoop.sh) Package manager
-- [git](https://git-scm.com/git)
-- [z](https://github.com/badmotorfinger/z) Directory jumper
-- [Teminal-Icons](https://github.com/devblackops/Terminal-Icons) file and folder
-  icons
 - [Github CLI](https://cli.github.com) github command line
 - [fzf](https://github.com/junegunn/fzf) search files and folders
-- [bat](https://github.com/sharkdp/bat) a cat similar with highlightins and
-  extra features
+- [zoxide](https://github.com/ajeetdsouza/zoxide) - Directory jumper
+- [kitty](https://github.com/kovidgoyal/kitty) Unix Terminal
+- [Windows Terminal](https://github.com/microsoft/terminal) Windows Terminal
+- [bat](https://github.com/sharkdp/bat) a cat similar
+- [exa](https://the.exa.website/) a modern replacement for ls
+- [starship](https://starship.rs/) cross-shell prompt
+
+## Neovim
+
+- [NvChad](https://nvchad.com) a Neovim workflow, along with custom plugins to enhance the experience
+- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Patched fonts (i use Hack)
+
+## Shell (Windows)
+
+- [Powershell](https://github.com/PowerShell/PowerShell) Shell
+- [scoop](https://scoop.sh) Package manager
+- [Teminal-Icons](https://github.com/devblackops/Terminal-Icons) file and folder
+  icons
 - [PSReadLine](https://github.com/PowerShell/PSReadLine) readline implementation
 - [neofetch](https://github.com/dylanaraps/neofetch) system information utility
+
+## Shell (Linux)
+
+- [Fish shell](https://fishshell.com/) Shell
+- [Fisher](https://github.com/jorgebucaran/fisher) - Fish plugin manager
+- [zoxide](https://github.com/ajeetdsouza/zoxide) - Directory jumper
+
+## Linux
+
+[Arch Linux](https://archlinux.org/) Linux Distrubtion
+[xfce](https://xfce.org/) Desktop Environment
