@@ -98,11 +98,6 @@ M.override = {
 	NvDashButtons = {
 		bg = "none",
 	},
-	Comment = { italic = true },
-
-	-- DiagnosticError = { link = "", bg = { "red", -45 } },
-	-- DiagnosticHint = { link = "", bg = { "lightbg", -50 } },
-	-- DiagnosticWarn = { link = "", bg = { "yellow", -75 } },
 }
 
 ---@type HLTable
@@ -111,10 +106,6 @@ M.add = {
 	-- CmpDoc if tranparency is enabled
 	CmpDocTransparent = { link = "none" },
 	SagaBorder = { link = "CmpDocBorder" },
-	DiagnosticSignHint = { fg = "lightbg" },
-	DiagnosticSignWarn = { fg = "yellow" },
-	DiagnosticSignError = { fg = "red" },
-	NotifyBackground = { bg = "black" },
 }
 
 M.override = setHlStyles(styles, M.override)

@@ -1,9 +1,7 @@
----@type ChadrcConfig
 local M = {}
 
 -- Path to overriding theme and highlights files
 local highlights = require("highlights")
-
 M.ui = {
 	theme = "solarized_osaka",
 	theme_toggle = { "solarized_osaka", "palenight" },
@@ -14,6 +12,7 @@ M.ui = {
 
 	lsp = {
 		semantic_tokens = true,
+		signature = true,
 	},
 
 	statusline = {
@@ -61,6 +60,23 @@ M.ui = {
 
 M.base46 = {
 	integrations = {
+		"blankline",
+		"cmp",
+		"defaults",
+		"devicons",
+		"git",
+		"lsp",
+		"mason",
+		"nvcheatsheet",
+		"nvdash",
+		"nvimtree",
+		"statusline",
+		"syntax",
+		"treesitter",
+		"tbline",
+		"telescope",
+		"whichkey",
+		-- custom integrations
 		"lspsaga",
 		"notify",
 	},

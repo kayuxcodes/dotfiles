@@ -16,18 +16,20 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-vim.diagnostic.config({
-	virtual_text = { spacing = 4 },
-	update_in_insert = true,
-	underline = true,
-	severity_sort = true,
-})
-
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
---   underline = true,
---   update_in_insert = false,
---   virtual_text = { spacing = 4 },
---   severity_sort = true,
+-- vim.diagnostic.config({
+-- 	virtual_text = { spacing = 4 },
+-- 	update_in_insert = true,
+-- 	underline = true,
+-- 	severity_sort = true,
+-- 	signs = true,
 -- })
 
--- lspconfig.pyright.setup { blabla}
+-- local function lspSymbol(name, icon)
+-- 	local hl = "DiagnosticSign" .. name
+-- 	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+-- end
+--
+-- lspSymbol("Error", "󰅙")
+-- lspSymbol("Info", "󰋼")
+-- lspSymbol("Hint", "󰌵")
+-- lspSymbol("Warn", "")

@@ -1,3 +1,4 @@
+local lazy = require("lazy")
 return {
 	{
 		"windwp/nvim-ts-autotag",

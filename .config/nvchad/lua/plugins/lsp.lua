@@ -1,5 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
+	config = function()
+		require("configs.lsp-config")
+	end,
 	dependencies = {
 		-- format
 		{
@@ -25,7 +28,4 @@ return {
 			opts = require("configs.mason").mason_lsp_config,
 		},
 	},
-	config = function()
-		require("configs.lsp-config")
-	end,
 }
