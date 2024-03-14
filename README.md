@@ -5,10 +5,15 @@ and make a backup just in case.
 
 ## Table of Contents
 
+- [Linux](#linux)
 - [Tools](#tools)
 - [Shell](#shell)
 - [Neovim](#neovim)
-- [Linux](#linux)
+
+## Linux
+
+- [Arch Linux](https://archlinux.org/) Linux Distribution
+- [xfce](https://xfce.org/) Desktop Environment
 
 ## Tools
 
@@ -20,28 +25,24 @@ and make a backup just in case.
 - [bat](https://github.com/sharkdp/bat) a cat similar
 - [exa](https://the.exa.website/) a modern replacement for ls
 - [starship](https://starship.rs/) cross-shell prompt
+- [neofetch](https://github.com/dylanaraps/neofetch) system information utility
 
 ## Neovim
 
 - [NvChad](https://nvchad.com) a Neovim workflow, along with custom plugins to enhance the experience
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Patched fonts (i use Hack)
 
-## Shell (Windows)
+## Shell
+
+### Windows
 
 - [Powershell](https://github.com/PowerShell/PowerShell) Shell
 - [scoop](https://scoop.sh) Package manager
 - [Teminal-Icons](https://github.com/devblackops/Terminal-Icons) file and folder
   icons
 - [PSReadLine](https://github.com/PowerShell/PSReadLine) readline implementation
-- [neofetch](https://github.com/dylanaraps/neofetch) system information utility
 
-## Shell (Linux)
+### Linux
 
 - [Fish shell](https://fishshell.com/) Shell
 - [Fisher](https://github.com/jorgebucaran/fisher) - Fish plugin manager
-- [zoxide](https://github.com/ajeetdsouza/zoxide) - Directory jumper
-
-## Linux
-
-[Arch Linux](https://archlinux.org/) Linux Distrubtion
-[xfce](https://xfce.org/) Desktop Environment
