@@ -91,13 +91,6 @@ M.override = {
 	CmpDoc = {
 		link = "",
 	},
-	NvDashAscii = {
-		bg = "none",
-		fg = "blue",
-	},
-	NvDashButtons = {
-		bg = "none",
-	},
 }
 
 ---@type HLTable
