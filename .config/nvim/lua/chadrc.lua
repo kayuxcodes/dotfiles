@@ -2,6 +2,7 @@ local M = {}
 
 -- Path to overriding theme and highlights files
 local highlights = require("highlights")
+
 M.ui = {
 	theme = "solarized_osaka",
 	theme_toggle = { "solarized_osaka", "palenight" },

@@ -1,10 +1,11 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- add your's here
-
-autocmd("FileType", {
-	pattern = { "oil", "oil_preview" },
+-- highlight on yank
+autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
 	callback = function()
-		vim.o.statuscolumn = ""
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
 	end,
 })
