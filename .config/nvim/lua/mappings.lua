@@ -3,7 +3,8 @@ require("nvchad.mappings")
 -- add yours here
 
 local map = vim.keymap.set
-local disableKeymap = require("utils").disableKeymap
+local disableKeymap = require("util").disableKeymap
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map("n", "<leader>fn", function()
@@ -77,11 +78,7 @@ map("n", "fo", "<cmd>Telescope oldfiles <CR>", { desc = "Telescope Find oldfiles
 map("n", "fz", "<cmd>Telescope current_buffer_fuzzy_find <CR>", { desc = "Telescope Find in current buffer" })
 
 map("n", "<leader>fm", function()
-	require("conform").format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 500,
-	})
+	require("conform").format()
 end, { desc = "Conform Format file" })
 
 map("n", "<leader>l", function()

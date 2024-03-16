@@ -1,4 +1,3 @@
-local lazy = require("lazy")
 return {
 	{
 		"windwp/nvim-ts-autotag",
@@ -7,7 +6,7 @@ return {
 	},
 	{
 		"nvimdev/lspsaga.nvim",
-		lazy = false,
+		event = "VeryLazy",
 		opts = require("configs.lspsaga"),
 	},
 	{
@@ -23,11 +22,6 @@ return {
 	{
 		"brenoprata10/nvim-highlight-colors",
 		opts = require("configs.nvim-highlight-colors"),
-		event = "VeryLazy",
-	},
-	{
-		"NvChad/nvim-colorizer.lua",
-		enabled = false,
 	},
 	{
 		"max397574/better-escape.nvim",

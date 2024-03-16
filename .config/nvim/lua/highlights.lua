@@ -3,7 +3,7 @@
 -- base30 variable names can also be used as colors
 local M = {}
 
-local setHlStyles = require("utils").setHlStyles
+local setHlStyles = require("util").setHlStyles
 
 local styles = {
 	enable = {

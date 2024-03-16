@@ -103,14 +103,16 @@ function M.statuscolumn()
 		end
 		components[2] = "%=" .. components[2] .. " " -- right align
 	end
-	-- Get the number of lines in the buffer
+
+	-- get the number of lines in the buffer
 	local buffer_lines = vim.fn.line("$")
 
-	-- target the current window that uses relative numbers (ex: telescope)
-	-- to avoid extra space when its open
-	local relativenumber = vim.api.nvim_win_get_config(0).relative ~= ""
+	-- check if the current window is using relative line numbers (ex: telescope)
+	local relative_win = vim.api.nvim_win_get_config(0).relative ~= ""
 
-	if buffer_lines < 10 and not relativenumber then
+	-- add an extra space for lines that are less than 10
+	-- if relative number window are not open
+	if buffer_lines < 10 and not relative_win then
 		components[2] = " " .. components[2]
 	end
 

@@ -18,19 +18,16 @@ M.ui = {
 
 	statusline = {
 		separator_style = "default",
-		theme = "default", -- default/vscode/vscode_colored/minimal
+		theme = "default",
 	},
 
 	tabufline = {
 		enabled = true,
 		lazyload = true,
-		order = { "treeOffset", "buffers", "tabs", "btns" },
-		modules = nil,
 	},
 
 	cmp = {
-		style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
-		-- lspkind_text = false,
+		style = "atom",
 	},
 
 	telescope = {
@@ -51,8 +48,7 @@ M.ui = {
 			{ "  Find File", "f + f", "Telescope find_files" },
 			{ "  Browse Files", "f + l", "Oil" },
 			{ "󰈚  Recent Files", "f + o", "Telescope oldfiles" },
-			-- { "󰈭  Find Word", "f + w", "Telescope live_grep" },
-			{ "  Bookmarks", "m + a", "Telescope marks" },
+			{ "󰈭  Find Word", "f + w", "Telescope live_grep" },
 			{ "  Themes", "Spc + th", "Telescope themes" },
 			{ "  Mappings", "Spc + ch", "NvCheatsheet" },
 		},

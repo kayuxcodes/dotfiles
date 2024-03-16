@@ -11,11 +11,11 @@ return {
 			"deno",
 			"prettierd",
 			"eslint_d",
-      -- md
-      "alex"
+			-- md
+			"alex",
 		},
 	},
-	mason_lsp_config = {
+	mason_lspconfig = {
 		ensure_installed = { "tailwindcss", "astro", "powershell_es" },
 	},
 }

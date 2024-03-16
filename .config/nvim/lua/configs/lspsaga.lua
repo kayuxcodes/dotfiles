@@ -1,7 +1,6 @@
 return {
 	ui = {
 		border = "double",
-		-- winblend = 10,
 		code_action = "",
 		actionfix = " ",
 	},

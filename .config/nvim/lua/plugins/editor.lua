@@ -20,21 +20,13 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		opts = require("configs.cmp").setup(),
+		opts = require("configs.cmp"),
 	},
 	{
 		"stevearc/oil.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("oil").setup()
 		end,
-		event = "VeryLazy",
-	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		enabled = false,
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		enabled = false,
 	},
 }

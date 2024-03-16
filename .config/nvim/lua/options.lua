@@ -4,7 +4,7 @@ local o = vim.o
 local opt = vim.opt
 
 o.cursorlineopt = "number,line"
-o.statuscolumn = "%!v:lua.require'utils.statuscolumn'.statuscolumn()"
+o.statuscolumn = "%!v:lua.require'configs.statuscolumn'.statuscolumn()"
 opt.shell = "fish"
 opt.cmdheight = 1
 opt.autoindent = true

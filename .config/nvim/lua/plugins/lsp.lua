@@ -26,7 +26,7 @@ return {
 		},
 		{
 			"williamboman/mason-lspconfig.nvim",
-			opts = require("configs.mason").mason_lsp_config,
+			opts = require("configs.mason").mason_lspconfig,
 		},
 	},
 }
