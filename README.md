@@ -1,4 +1,4 @@
-# kayux's dotfiles
+# kayuxx's dotfiles
 
 Before making any changes to your config, take a quick peek
 and make a backup just in case.
@@ -26,6 +26,7 @@ and make a backup just in case.
 - [exa](https://the.exa.website/) a modern replacement for ls
 - [starship](https://starship.rs/) cross-shell prompt
 - [neofetch](https://github.com/dylanaraps/neofetch) system information utility
+- [tmux](https://github.com/tmux/tmux) Terminal multiplexer
 
 ## Neovim
 
