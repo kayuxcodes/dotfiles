@@ -10,6 +10,7 @@ return {
 			"typescript-language-server",
 			"deno",
 			"prettierd",
+			"ast-grep",
 			"eslint_d",
 			-- md
 			"alex",

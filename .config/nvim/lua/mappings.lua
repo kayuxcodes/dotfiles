@@ -87,6 +87,12 @@ end, { desc = "Lint lint file" })
 
 map("n", "<leader>sh", "<cmd>Telescope notify<cr>", { desc = "Telescope notify" })
 
+-- tmux navigation
+map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Window left" })
+map("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Window right" })
+map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Window Down" })
+map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Window up" })
+
 disableKeymap("<leader>ff")
 disableKeymap("<leader>fa")
 disableKeymap("<leader>fw")

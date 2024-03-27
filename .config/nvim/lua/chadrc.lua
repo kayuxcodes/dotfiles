@@ -12,7 +12,7 @@ M.ui = {
 	hl_add = highlights.add,
 
 	lsp = {
-		semantic_tokens = true,
+		semantic_tokens = false,
 		signature = true,
 	},
 

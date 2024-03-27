@@ -30,4 +30,18 @@ return {
 			require("better_escape").setup()
 		end,
 	},
+	{
+		"mg979/vim-visual-multi",
+		event = "VeryLazy",
+	},
+	{
+		"christoomey/vim-tmux-navigator",
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+	},
 }
