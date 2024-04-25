@@ -8,11 +8,12 @@ and make a backup just in case.
 - [Linux](#linux)
 - [Tools](#tools)
 - [Shell](#shell)
-- [Neovim](#neovim)
+- [IDE](#neovim)
 
 ## Linux
 
 - [Arch Linux](https://archlinux.org/) Linux Distribution
+- [COSMIC](ht)
 - [xfce](https://xfce.org/) Desktop Environment
 
 ## Tools
@@ -27,11 +28,13 @@ and make a backup just in case.
 - [starship](https://starship.rs/) cross-shell prompt
 - [neofetch](https://github.com/dylanaraps/neofetch) system information utility
 - [tmux](https://github.com/tmux/tmux) Terminal multiplexer
+- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - a Patched fonts, i use Isoveka
 
-## Neovim
+## IDE
 
+- [Zed](https://zed.dev) a high-performance, multiplayer code editor builtin rust
+- [Neovim](https://neovim.io) hyperextensible Vim-based text editor
 - [NvChad](https://nvchad.com) a Neovim workflow, along with custom plugins to enhance the experience
-- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Patched fonts (i use Hack)
 
 ## Shell
 
