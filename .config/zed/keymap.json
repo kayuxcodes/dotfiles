@@ -64,7 +64,7 @@
     }
   },
   {
-    "context": "Editor && vim_mode == insert && (showing_code_actions || showing_completions)",
+    "context": "Editor && (vim_mode == insert || vim_mode == normal) && (showing_code_actions || showing_completions)",
     "bindings": {
       "tab": "editor::ContextMenuNext",
       "shift-tab": "editor::ContextMenuPrev"
