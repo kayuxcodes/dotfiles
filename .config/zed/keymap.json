@@ -1,0 +1,80 @@
+[
+  {
+    "bindings": {
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrev",
+      "alt-m": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "f l": "project_panel::ToggleFocus",
+      "f f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-m": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "o": "project_panel::NewFile",
+      "d d": "project_panel::Delete",
+      "i": "project_panel::Rename",
+      "x": "project_panel::RevealInFinder",
+      "q": "project_panel::ToggleFocus",
+      "f f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "shift-tab": "pane::ActivatePrevItem",
+      "tab": "pane::ActivateNextItem",
+      "shift-k": "editor::Hover",
+      "space t x": "pane::CloseActiveItem",
+      "space /": "editor::ToggleComments",
+      "f l": "project_panel::ToggleFocus",
+      "f f": "file_finder::Toggle",
+      "f w": "pane::DeploySearch",
+      "g x": "editor::ToggleCodeActions",
+      "g a": "editor::GoToDefinition",
+      "r a": "editor::Rename",
+      "g n": "editor::GoToDiagnostic",
+      "q": "editor::Cancel",
+      "enter": "editor::OpenExcerpts" // zed specific
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "q": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j k": ["vim::SwitchMode", "Normal"],
+      // it has some delay, use ctrl-space instead
+      "ctrl-k": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrev"
+    }
+  },
+  {
+    // escape is in its own section so that it cancels a pending count.
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "q": "editor::Cancel"
+    }
+  }
+]
