@@ -4,8 +4,8 @@ local M = {}
 local highlights = require("highlights")
 
 M.ui = {
-	theme = "solarized_osaka",
-	theme_toggle = { "solarized_osaka", "palenight" },
+	theme = "rosepine",
+	theme_toggle = { "rosepine", "palenight" },
 	changed_themes = highlights.changed_themes,
 	transparency = false,
 	hl_override = highlights.override,
@@ -24,6 +24,12 @@ M.ui = {
 	tabufline = {
 		enabled = true,
 		lazyload = true,
+		modules = {
+			-- You can add your custom component
+			btns = function()
+				return ""
+			end,
+		},
 	},
 
 	cmp = {
@@ -40,7 +46,7 @@ M.ui = {
 			"██╗  ██╗ █████╗ ██╗   ██╗██╗   ██╗██╗  ██╗██╗  ██╗",
 			"██║ ██╔╝██╔══██╗╚██╗ ██╔╝██║   ██║╚██╗██╔╝╚██╗██╔╝",
 			"█████╔╝ ███████║ ╚████╔╝ ██║   ██║ ╚███╔╝  ╚███╔╝ ",
-			"██╔═██╗ ██╔══██║  ╚██╔╝  ██║   ██║ ██╔██╗  ██╔██╗ ",
+			-- "██╔═██╗ ██╔══██║  ╚██╔╝  ██║   ██║ ██╔██╗  ██╔██╗ ",
 			"██║  ██╗██║  ██║   ██║   ╚██████╔╝██╔╝ ██╗██╔╝ ██╗",
 			"╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝",
 		},
@@ -50,29 +56,13 @@ M.ui = {
 			{ "󰈚  Recent Files", "f + o", "Telescope oldfiles" },
 			{ "󰈭  Find Word", "f + w", "Telescope live_grep" },
 			{ "  Themes", "Spc + th", "Telescope themes" },
-			{ "  Mappings", "Spc + ch", "NvCheatsheet" },
+			-- { "  Mappings", "Spc + ch", "NvCheatsheet" },
 		},
 	},
 }
 
 M.base46 = {
 	integrations = {
-		"blankline",
-		"cmp",
-		"defaults",
-		"devicons",
-		"git",
-		"lsp",
-		"mason",
-		"nvcheatsheet",
-		"nvdash",
-		"nvimtree",
-		"statusline",
-		"syntax",
-		"treesitter",
-		"tbline",
-		"telescope",
-		"whichkey",
 		-- custom integrations
 		"lspsaga",
 		"notify",

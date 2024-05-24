@@ -3,11 +3,11 @@
 -- base30 variable names can also be used as colors
 local M = {}
 
-local setHlStyles = require("util").setHlStyles
+local setHlStyles = require("utils").setHlStyles
 
 local styles = {
 	enable = {
-		italic = true,
+		italic = false,
 		bold = true,
 		reverse = true,
 		strikethrough = true,
@@ -87,7 +87,7 @@ M.override = {
 		italic = true,
 		bold = true,
 	},
-	-- this will used for CmpDoc if tranparency is disabled
+	-- used for CmpDoc if tranparency is disabled
 	CmpDoc = {
 		link = "",
 	},
@@ -95,14 +95,16 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-	NvimTreeOpenedFolderName = { fg = "green", bold = true },
-	-- CmpDoc if tranparency is enabled
+	-- for CmpDoc hl if tranparency is enabled
 	CmpDocTransparent = { link = "none" },
+	DiagnosticUnderlineError = { undercurl = true, sp = "red" },
+	DiagnosticUnderlineWarn = { undercurl = true, sp = "yellow" },
+	DiagnosticUnderlineInfo = { undercurl = true, sp = "blue" },
+	DiagnosticUnderlineHint = { undercurl = true, sp = "purple" },
+	NvimTreeOpenedFolderName = { fg = "green", bold = true },
 	SagaBorder = { link = "CmpDocBorder" },
 }
 
 M.override = setHlStyles(styles, M.override)
-
-M.changed_themes = {}
 
 return M

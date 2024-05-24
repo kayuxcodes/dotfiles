@@ -32,7 +32,9 @@ return {
 	},
 	{
 		"mg979/vim-visual-multi",
-		event = "VeryLazy",
+		keys = {
+			{ "<c-n>", mode = "n", desc = "Visual multi" },
+		},
 	},
 	{
 		"christoomey/vim-tmux-navigator",
@@ -43,5 +45,20 @@ return {
 			"TmuxNavigateRight",
 			"TmuxNavigatePrevious",
 		},
+	},
+	{
+		"laytan/tailwind-sorter.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+		build = "cd formatter && npm ci && npm run build",
+		ft = { "html", "javascriptreact", "typescriptreact", "tsx", "jsx", "astro" },
+		opts = {
+			on_save_enabled = true,
+		},
+	},
+	{
+		"folke/ts-comments.nvim",
+		opts = {},
+		event = "VeryLazy",
+		enabled = vim.fn.has("nvim-0.10.0") == 1,
 	},
 }

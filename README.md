@@ -1,7 +1,6 @@
 # kayuxx's dotfiles
 
-Before making any changes to your config, take a quick peek
-and make a backup just in case.
+Before making any changes to your config, take a quick peek and make a backup just in case.
 
 ## Table of Contents
 
@@ -28,13 +27,13 @@ and make a backup just in case.
 - [starship](https://starship.rs/) cross-shell prompt
 - [neofetch](https://github.com/dylanaraps/neofetch) system information utility
 - [tmux](https://github.com/tmux/tmux) Terminal multiplexer
-- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - a Patched fonts, i use Isoveka
+- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - a Patched fonts, (i use JetBrainsMono and Hack)
 
 ## IDE
 
-- [Zed](https://zed.dev) a high-performance, multiplayer code editor builtin rust
 - [Neovim](https://neovim.io) hyperextensible Vim-based text editor
 - [NvChad](https://nvchad.com) a Neovim workflow, along with custom plugins to enhance the experience
+- [Zed](https://zed.dev) a high-performance, multiplayer code editor builtin rust
 
 ## Shell
 

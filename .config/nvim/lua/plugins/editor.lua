@@ -23,10 +23,17 @@ return {
 		opts = require("configs.cmp"),
 	},
 	{
+		"lewis6991/gitsigns.nvim",
+		event = "User FilePost",
+		opts = function()
+			return require("configs.gitsigns")
+		end,
+	},
+	{
 		"stevearc/oil.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("oil").setup()
+			require("oil").setup(require("configs.oil"))
 		end,
 	},
 }

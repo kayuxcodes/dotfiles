@@ -1,11 +1,12 @@
 require("nvchad.mappings")
 
 -- add yours here
-
 local map = vim.keymap.set
-local disableKeymap = require("util").disableKeymap
+local disableKeymap = require("utils").disableKeymap
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+local opts = { noremap = true, silent = true }
+
+map("n", ";", ":", { desc = "CMD enter command mode" }, opts)
 
 map("n", "<leader>fn", function()
 	vim.cmd('normal! o<Esc>0"_D')
@@ -39,14 +40,11 @@ map("n", "<leader>tt", function()
 	require("base46").toggle_transparency()
 end, { desc = "NvChad Toggle transparency" })
 
-map("n", "fl", function()
-	require("oil").open()
-end, { desc = "Oil Open parent directory" })
+map("n", "fl", "<cmd>Oil --float<cr>", { desc = "Oil Open parent directory" })
 
 map("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "LspSaga Go to next diagnostic" })
 
 map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>", { desc = "LspSaga Show in line diagnostic" })
-
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "LspSaga Hover to display doc" })
 
 map("n", "gd", "<cmd>Lspsaga finder<cr>", { desc = "LspSaga find similar defenitions" })
@@ -85,7 +83,15 @@ map("n", "<leader>l", function()
 	require("lint").try_lint()
 end, { desc = "Lint lint file" })
 
+map("n", "<leader>b", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree Toggle" })
+
+vim.g.nvim_tree_auto_open = 1 -- "0 by default, opens the tree when typing `vim $DIR` or `vim`
+
 map("n", "<leader>sh", "<cmd>Telescope notify<cr>", { desc = "Telescope notify" })
+
+-- commenting using builtin feat
+map("n", "<leader>/", "<cmd>normal gcc<cr>", opts)
+map("v", "<leader>/", "<cmd>normal gc<cr>", opts)
 
 -- tmux navigation
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Window left" })

@@ -5,11 +5,11 @@ local options = {
 		-- Conform will run multiple formatters sequentially
 		python = { "isort", "black" },
 		-- Use a sub-list to run only the first available formatter
-		javascript = { "deno_fmt", "prettierd" },
-		typescript = { "deno_fmt", "prettierd" },
-		javascriptreact = { "deno_fmt", "prettierd" },
-		typescriptreact = { "deno_fmt", "prettierd" },
-		json = { "deno_fmt", "prettierd" },
+		javascript = { "deno_fmt" },
+		typescript = { "deno_fmt" },
+		javascriptreact = { "deno_fmt" },
+		typescriptreact = { "deno_fmt" },
+		json = { "deno_fmt" },
 		css = { "prettierd" },
 	},
 	format_on_save = {

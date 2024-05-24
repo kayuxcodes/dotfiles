@@ -1,14 +1,14 @@
-return {
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		enabled = false,
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		enabled = false,
-	},
-	{
-		"NvChad/nvim-colorizer.lua",
-		enabled = false,
-	},
+local plugins = {
+	"lukas-reineke/indent-blankline.nvim",
+	"nvim-tree/nvim-tree.lua",
+	"NvChad/nvim-colorizer.lua",
+	"numToStr/Comment.nvim",
 }
+
+local disabledPlugins = {}
+
+for key, value in ipairs(plugins) do
+	disabledPlugins[key] = { value, enabled = false }
+end
+
+return disabledPlugins

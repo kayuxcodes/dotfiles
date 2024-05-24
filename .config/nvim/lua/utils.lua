@@ -1,6 +1,6 @@
 local M = {}
 
--- set highlights styles, italics, bold, reverse, etc
+-- set highlights styles, italic, bold, reverse, etc
 M.setHlStyles = function(styles, override)
 	local T = {}
 	for style, tbl in pairs(styles.hls) do
