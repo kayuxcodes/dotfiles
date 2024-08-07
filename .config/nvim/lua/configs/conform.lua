@@ -11,6 +11,7 @@ local options = {
 		typescriptreact = { "deno_fmt" },
 		json = { "deno_fmt" },
 		css = { "prettierd" },
+		-- astro = { "prettierd" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()

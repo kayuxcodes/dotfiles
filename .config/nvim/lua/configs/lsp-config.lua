@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 local config = require("nvchad.configs.lspconfig")
-local user_config = require("nvconfig").ui.lsp
+local user_config = require("nvconfig").lsp
 
 local on_attach = function(client, bufnr)
 	-- setup signature popup

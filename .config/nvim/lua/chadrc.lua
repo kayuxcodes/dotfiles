@@ -3,19 +3,16 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require("highlights")
 
-M.ui = {
-	theme = "rosepine",
+M.base46 = {
+	theme = "gruvchad",
 	theme_toggle = { "rosepine", "palenight" },
 	changed_themes = highlights.changed_themes,
 	transparency = false,
 	hl_override = highlights.override,
 	hl_add = highlights.add,
+}
 
-	lsp = {
-		semantic_tokens = false,
-		signature = true,
-	},
-
+M.ui = {
 	statusline = {
 		separator_style = "default",
 		theme = "default",
@@ -61,12 +58,13 @@ M.ui = {
 	},
 }
 
-M.base46 = {
-	integrations = {
-		-- custom integrations
-		"lspsaga",
-		"notify",
-	},
+M.lsp = {
+	semantic_tokens = false, -- should be true but nvchad dosen't really support it in base46
+	signature = true,
+}
+
+M.mason = {
+	cmd = true,
 }
 
 return M

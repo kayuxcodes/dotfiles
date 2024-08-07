@@ -46,19 +46,38 @@ return {
 			"TmuxNavigatePrevious",
 		},
 	},
+	-- {
+	-- 	"laytan/tailwind-sorter.nvim",
+	-- 	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+	-- 	build = "cd formatter && npm ci && npm run build",
+	-- 	ft = { "html", "javascriptreact", "typescriptreact", "tsx", "jsx", "astro" },
+	-- 	opts = {
+	-- 		on_save_enabled = true,
+	-- 	},
+	-- },
 	{
-		"laytan/tailwind-sorter.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
-		build = "cd formatter && npm ci && npm run build",
+		"luckasRanarison/tailwind-tools.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		ft = { "html", "javascriptreact", "typescriptreact", "tsx", "jsx", "astro" },
-		opts = {
-			on_save_enabled = true,
-		},
+		opts = {}, -- your configuration
 	},
 	{
 		"folke/ts-comments.nvim",
 		opts = {},
 		event = "VeryLazy",
 		enabled = vim.fn.has("nvim-0.10.0") == 1,
+	},
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false, -- Recommended
+		ft = "markdown", -- If you decide to lazy-load anyway
+
+		dependencies = {
+			-- You will not need this if you installed the
+			-- parsers manually
+			-- Or if the parsers are in your $RUNTIMEPATH
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
 	},
 }
