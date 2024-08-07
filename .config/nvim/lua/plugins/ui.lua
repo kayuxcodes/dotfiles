@@ -18,10 +18,6 @@ return {
 	{
 		"nvchad/base46",
 		lazy = false,
-		config = function()
-			vim.cmd("hi clear")
-			-- vim.cmd("qa!")
-		end,
 	},
 	{
 		"rose-pine/neovim",
